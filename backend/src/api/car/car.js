@@ -8,8 +8,8 @@ const mongoose = restful.mongoose
 const carSchema = new mongoose.Schema({
        marca: {type: String, required: true },
        modelo: {type: String, required: true},
-       ano: {type: Number},
-       flex: {type: Boolean}
+       ano: {type: Number, required: true},
+       flex: {type: Boolean, required: true}
 })
 // cria um modelo do esquema chamado Todo e o exporta para ser utilizado em outro arquivo
 module.exports = restful.model('Car', carSchema)

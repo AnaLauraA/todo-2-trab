@@ -10,7 +10,7 @@ export default props => (
         <p>2 trabalho para a criação das funcionalidades do aplicativo de carro</p>
         <h2>Missão e Visão</h2>
         <p>2 Ano Engenheria de Software</p>
-        <h2>Imprensa</h2>
+        <h2>Criadores</h2>
         <p>Ana Laura Alvino de Souza e Saulo Sousa Andrade</p>
     </div>
 )

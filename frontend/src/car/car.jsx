@@ -68,16 +68,30 @@ export default class Car extends Component {
         super(props)
         this.state = { marca: '', modelo: '', ano: '', flex: '', list: [] }
         
-        this.handleChange = this.handleChange.bind(this)
+        this.handleChangeMarca = this.handleChangeMarca.bind(this)
+        this.handleChangeModelo = this.handleChangeModelo.bind(this)
+        this.handleChangeAno = this.handleChangeAno.bind(this)
+        this.handleChangeFlex = this.handleChangeFlex.bind(this)
+
         this.handleAdd = this.handleAdd.bind(this)
     }
-    handleChange(e) {
+    handleChangeMarca(e) {
         this.setState({ ...this.state, marca: e.target.value })
+        
+    }
+    handleChangeModelo(e) {
         this.setState({ ...this.state, modelo: e.target.value })
+        
+    }
+    handleChangeAno(e) {
         this.setState({ ...this.state, ano: e.target.value })
+        
+    }
+    handleChangeFlex(e) {
         this.setState({ ...this.state, flex: e.target.value })
         
     }
+
     handleAdd() {
         const marca = this.state.marca
         const modelo = this.state.modelo
@@ -96,7 +110,11 @@ export default class Car extends Component {
                     modelo={this.state.modelo}
                     ano={this.state.ano}
                     flex={this.state.flex}
-                    handleChange={this.handleChange}
+
+                    handleChangeMarca={this.handleChangeMarca}
+                    handleChangeModelo={this.handleChangeModelo}
+                    handleChangeAno={this.handleChangeAno}
+                    handleChangeFlex={this.handleChangeFlex}
                     handleAdd={this.handleAdd} />
                 <CarList />
             </div>

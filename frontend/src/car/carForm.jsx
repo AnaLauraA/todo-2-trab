@@ -57,23 +57,30 @@ export default props => (
         <Grid cols='12 9 10'>
             <input id='marca' className='form-control'
                 placeholder='Adicione a marca do veiculo'
-                onChange={props.handleChange}
+                onChange={props.handleChangeMarca}
                 value={props.marca}></input>
 
-                <input id='modelo' className='form-control'
+            <input id='modelo' className='form-control'
                 placeholder='Adicione o modelo do veiculo'
-                onChange={props.handleChange}
+                onChange={props.handleChangeModelo}
                 value={props.modelo}></input>
 
-                <input id='ano' className='form-control'
+            <input id='ano' className='form-control' type='number'
                 placeholder='Adicione o ano do veiculo'
-                onChange={props.handleChange}
+                onChange={props.handleChangeAno}
                 value={props.ano}></input>
-                
-                <input id='flex' className='form-control'
-                placeholder='Combustivel'
-                onChange={props.handleChange}
-                value={props.flex}></input>
+            <div id='flex'>
+                <label for="primeiro">Normal</label>
+                <input id='primeiro' className='form-control'name='combustivel' type='radio'
+                    placeholder='Combustivel'
+                    onChange={props.handleChangeFlex}
+                    value='false'></input>
+                <label for="segundo">Flex</label>
+                <input id='segundo'className='form-control' name='combustivel' type='radio'
+                    placeholder='Combustivel'
+                    onChange={props.handleChangeFlex}
+                    value='true'></input>
+            </div>
         </Grid>
         <Grid cols='12 3 2'>
             <IconButton style='primary' icon='plus'
