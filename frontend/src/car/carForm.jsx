@@ -71,12 +71,12 @@ export default props => (
                 value={props.ano}></input>
             <div id='flex'>
                 <label for="primeiro">Normal</label>
-                <input id='primeiro' className='form-control'name='combustivel' type='radio'
+                <input id='primeiro' className='form-control' name='combustivel' type='radio'
                     placeholder='Combustivel'
                     onChange={props.handleChangeFlex}
                     value='false'></input>
                 <label for="segundo">Flex</label>
-                <input id='segundo'className='form-control' name='combustivel' type='radio'
+                <input id='segundo' className='form-control' name='combustivel' type='radio'
                     placeholder='Combustivel'
                     onChange={props.handleChangeFlex}
                     value='true'></input>
@@ -85,6 +85,8 @@ export default props => (
         <Grid cols='12 3 2'>
             <IconButton style='primary' icon='plus'
                 onClick={props.handleAdd}></IconButton>
+            <IconButton style='info' icon='search'
+                onClick={props.handleSearch}></IconButton>
         </Grid>
-    </div>
+    </div >
 )
