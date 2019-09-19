@@ -67,31 +67,31 @@ export default class Car extends Component {
     constructor(props) {
         super(props)
         this.state = { marca: '', modelo: '', ano: '', flex: '', list: [] }
-
         this.handleChangeMarca = this.handleChangeMarca.bind(this)
         this.handleChangeModelo = this.handleChangeModelo.bind(this)
         this.handleChangeAno = this.handleChangeAno.bind(this)
         this.handleChangeFlex = this.handleChangeFlex.bind(this)
         this.handleAdd = this.handleAdd.bind(this)
-        this.Search = this.handleSearch.bind(this)
+        this.handleSearch = this.handleSearch.bind(this)
+        
         this.handleMarkAsDone = this.handleMarkAsDone.bind(this)
         this.handleMarkAsPending = this.handleMarkAsPending.bind(this)
         this.handleRemove = this.handleRemove.bind(this)
         this.refresh()
     }
-    refresh(description = '') {
+    refresh(marca = '') {
         const search = marca ? `&description__regex=/${marca}/` : ''
         axios.get(`${URL}?sort=-createdAt${search}`)
             .then(resp => this.setState({
                 ...this.state, marca, list:
                     resp.data
             }))
-    } F
+    } 
     handleSearch() {
         this.refresh(this.state.marca)
         this.refresh(this.state.modelo)
         this.refresh(this.state.ano)
-        this.refresh(this.state.marca)
+        this.refresh(this.state.flex)
     }
     handleRemove(car) {
         axios
@@ -100,12 +100,12 @@ export default class Car extends Component {
     }
     handleMarkAsDone(car) {
         axios
-            .put(`${URL}/${car._id}`, { ...car, done: true })
+            .put(`${URL}/${car._id}`, { ...car, flex: true })
             .then(resp => this.refresh())
     }
     handleMarkAsPending(car) {
         axios
-            .put(`${URL}/${car._id}`, { ...car, done: false })
+            .put(`${URL}/${car._id}`, { ...car, flex: false })
             .then(resp => this.refresh())
     }
     handleChangeMarca(e) {
